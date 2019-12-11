@@ -27,13 +27,6 @@ Hanami.configure do
     schema     'db/schema.sql'
   end
 
-  mailer do
-    root 'lib/shorty/mailers'
-
-    # See https://guides.hanamirb.org/mailers/delivery
-    delivery :test
-  end
-
   environment :development do
     # See: https://guides.hanamirb.org/projects/logging
     logger level: :debug
@@ -41,9 +34,5 @@ Hanami.configure do
 
   environment :production do
     logger level: :info, formatter: :json, filter: []
-
-    mailer do
-      delivery :smtp, address: ENV.fetch('SMTP_HOST'), port: ENV.fetch('SMTP_PORT')
-    end
   end
 end
