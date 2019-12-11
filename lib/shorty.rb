@@ -1,0 +1,2 @@
+module Shorty
+end

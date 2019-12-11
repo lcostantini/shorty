@@ -1,0 +1,3 @@
+project=shorty
+test=rspec
+template=erb
