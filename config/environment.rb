@@ -1,6 +1,8 @@
 require 'bundler/setup'
 require 'hanami/setup'
 require 'hanami/model'
+require 'hanami/middleware/body_parser'
+require 'securerandom'
 require_relative '../lib/shorty'
 require_relative '../apps/web/application'
 
@@ -35,4 +37,6 @@ Hanami.configure do
   environment :production do
     logger level: :info, formatter: :json, filter: []
   end
+
+  middleware.use Hanami::Middleware::BodyParser, :json
 end
